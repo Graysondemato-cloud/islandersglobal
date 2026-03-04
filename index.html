@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Islanders Global</title>
+<script src="//unpkg.com/globe.gl"></script>
+<style>
+body {
+margin: 0;
+background: black;
+font-family: Arial;
+}
+#popup {
+position: absolute;
+top: 20px;
+left: 20px;
+background: white;
+padding: 15px;
+display: none;
+border-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="globe"></div>
+<div id="popup"></div>
+
+<script>
+
+const locations = [
+{
+lat: 41.9028,
+lng: 12.4964,
+username: "examplefan",
+date: "March 2026",
+photo: "https://via.placeholder.com/200"
+}
+];
+
+const globe = Globe()
+(document.getElementById('globe'))
+.globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg')
+.backgroundColor('black')
+.pointsData(locations)
+.pointLat('lat')
+.pointLng('lng')
+.pointColor(() => 'orange')
+.pointAltitude(0.02)
+.onPointClick(point => {
+document.getElementById("popup").innerHTML = `
+<img src="${point.photo}" width="200"><br>
+<strong>@${point.username}</strong><br>
+${point.date}
+`;
+document.getElementById("popup").style.display = "block";
+
+globe.pointOfView(
+{ lat: point.lat, lng: point.lng, altitude: 1.5 },
+1000
+);
+});
+
+</script>
+
+</body>
+</html>
