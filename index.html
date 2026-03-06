@@ -9,6 +9,21 @@
       background: black;
       font-family: Arial;
     }
+    #logo {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 220px;
+  height: auto;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+#logo:hover {
+  opacity: 0.6;
+  filter: blur(2px);
+}
     #popup {
       position: absolute;
       top: 20px;
@@ -22,7 +37,9 @@
 </head>
 
 <body>
-
+  
+<img id="logo" src="logo.png">
+  
 <div id="globe"></div>
 <div id="popup"></div>
 
