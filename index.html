@@ -1,5 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html> (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/index.html b/index.html
+index cbf5a63c0d4542781d89e7eeb526f58be557060b..2a3ee2d628562f40b46b3e821876c7ad00bc4ec8 100644
+--- a/index.html
++++ b/index.html
+@@ -1,50 +1,52 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ <title>Islanders Global</title>
+ <script src="//unpkg.com/globe.gl"></script>
+ <style>
+ body {
+ margin: 0;
++background: black;
++font-family: Arial;
++}
++
+ #logo {
+   position: absolute;
+   top: 10px;
+   right: 20px;
+   width: 240px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   z-index: 1000;
+ }
+ 
+ #logo:hover {
+   opacity: 0.6;
+   filter: blur(2px);
+ }
+-background: black;
+-font-family: Arial;
+-}
++
+ #popup {
+ position: absolute;
+ top: 20px;
+ left: 20px;
+ background: orange;
+ padding: 25px;
+ display: none;
+ border-radius: 10px;
+ }
+ </style>
+ </head>
+ 
+ <body>
+ <img id="logo" src="https://cdn.discordapp.com/attachments/881958571963736126/1479311915489431552/A60DBB2D-D75B-4F18-B55A-B1A3F1CD3D37.png?ex=69ab9414&is=69aa4294&hm=760dec3062feab43bb30568ecbf33e576b3f91a0623a586614ece062f8d7984f">
+ <div id="globe"></div>
+ <div id="popup"></div>
+ 
+ <script>
+ 
+ const locations = [
+ {
+ lat: 59.3327,
+ lng: 18.0656,
+ username: "vic.eklund",
+ date: "Stockholm, Sweden - March 2026",
+ 
+EOF
+)
 <head>
 <title>Islanders Global</title>
 <script src="//unpkg.com/globe.gl"></script>
